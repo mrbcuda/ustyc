@@ -64,7 +64,6 @@ mtext(yc$updated,side=3,col="darkgray",cex=0.7)
 ![plotc](man/figures/change.png)
 
 
-See the package vignette for examples of these plots.
 
 References:
 * [US Treasury Feed Service](http://data.treasury.gov/feed.svc/DailyTreasuryYieldCurveRateData)
