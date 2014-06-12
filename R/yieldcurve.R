@@ -11,8 +11,11 @@
 #' @importFrom plyr ldply
 #' @references \url{http://data.treasury.gov/feed.svc/DailyTreasuryYieldCurveRateData}
 #' @seealso \url{http://cran.r-project.org/web/packages/FRBData/} for different interest rates and source. 
-#' @example 
+#' @examples
+#' \dontrun{ 
 #' xlist = getYieldCurve()
+#' summary(xlist)
+#' }
 getYieldCurve <- function(year=NULL,
                           month=NULL,
                           base="http://data.treasury.gov/feed.svc/DailyTreasuryYieldCurveRateData",
@@ -64,7 +67,7 @@ getYieldCurve <- function(year=NULL,
   }
   
   # list manipulator to produce a data frame
-  y = ldply(x, function(e) { 
+  y <- ldply(x, function(e) { 
     p <- e$content$properties
     q = sapply(names(p),cy,p)
     },
@@ -72,18 +75,18 @@ getYieldCurve <- function(year=NULL,
     .parallel=allowParallel)
 
   # strip hours and sort by date
-  y$NEW_DATE = substring(y$NEW_DATE,1,10)
-  y = y[with(y,order(NEW_DATE)),]
+  y$NEW_DATE <- substring(y$NEW_DATE,1,10)
+  y <- y[with(y,order(NEW_DATE)),]
   dates <- y$NEW_DATE
   
   # trim the columns, convert remainder to double, assign row names
-  y= data.frame(apply(y[,3:14],2,function(x) as.double(x)))
+  y <- data.frame(apply(y[,3:14],2,function(x) as.double(x)))
   rownames(y) <- dates
   
   message("Frame conversion complete.")
 
   # return a list with data frame and some other useful tags from fetch
-  rv = list(updated=updated,df=y,month=month,year=year,query=location)
+  rv <- list(updated=updated,df=y,month=month,year=year,query=location)
   class(rv) <- "ustyc"
   rv
 }
