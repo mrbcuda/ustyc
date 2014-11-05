@@ -1,5 +1,8 @@
-R Package `ustyc` 
-=================
+
+[![Build Status](https://travis-ci.org/mrbcuda/ustyc.png?branch=master)](https://travis-ci.org/mrbcuda/ustyc)
+
+US Treasury Yield Curve 
+=======================
 
 [Now on CRAN](http://cran.r-project.org/web/packages/ustyc/index.html).
 
