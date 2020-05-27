@@ -16,7 +16,8 @@ Description: Forms a query to submit for US Treasury yield curve data, posting
     returns a list which includes an item for this data frame as well as query-related
     values for reference and the update date from the service.
 Depends:
-    R (>= 3.0.3)
+    R (>= 3.0.3),
+    curl
 License: MIT + file LICENSE
 URL: https://github.com/mrbcuda/ustyc
 BugReports: https://github.com/mrbcuda/ustyc/issues
