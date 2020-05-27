@@ -1,7 +1,7 @@
 Package: ustyc
 Title: Fetch US Treasury yield curve data.
-Version: 1.0.0
-Date: 2014-06-12
+Version: 1.0.1
+Date: 2020-05-27
 Author: Matt Barry <mrb@softisms.com>
 Maintainer: Matt Barry <mrb@softisms.com>
 Description: Forms a query to submit for US Treasury yield curve data, posting

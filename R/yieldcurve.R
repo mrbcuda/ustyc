@@ -40,7 +40,9 @@ getYieldCurve <- function(year=NULL,
       parameters = paste("?$filter=",mloc,sep='')
   }
   
-  doc <- xmlParse(paste(location,parameters,sep=''))
+  require(curl)
+    req <- curl_fetch_memory(paste(location, parameters, sep = ""))
+    doc <- xmlParse(rawToChar(req$content))
   if (is.null(doc)) {
     warning(paste("Could not parse the location",location))
     return(NULL)
